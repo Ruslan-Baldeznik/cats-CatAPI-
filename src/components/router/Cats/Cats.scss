@@ -1,0 +1,24 @@
+.all-cats{
+	padding: 7vh 0 0 0;
+
+	min-height: 93vh;
+	width: 100%;
+	background-color: darkgoldenrod;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.all-cats__container{
+		width: 80%;
+		height: 100%;
+
+		padding: 20px 0;
+		overflow-y: scroll;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+}

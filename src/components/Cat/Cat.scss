@@ -1,0 +1,30 @@
+.cat{
+	height: 200px;
+	width: 200px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 5px;
+
+	border-radius: 10px;
+	overflow: hidden;
+
+	.cat-container{
+		height: 100%;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		overflow: hidden;
+		.cat-img{
+			width: 200px;
+			height: 200px;
+			object-fit: cover;
+		}
+		.add-to-my-cats{
+			position: absolute;
+		}
+	}
+}
