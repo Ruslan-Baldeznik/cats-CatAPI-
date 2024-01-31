@@ -14,16 +14,25 @@ const Header = (props) => {
 		console.log(props.catsScroll);
 	}
 	React.useEffect(()=>{
-		if(loaction.pathname === "/my-cats")
+		const allCats = document.querySelector(".header-button_cats")
+		const myCats = document.querySelector(".header-button_my-cats")
+
+		if(loaction.pathname === "/my-cats") {
 			window.scrollTo(0, props.MyCatsScroll);
-		if(loaction.pathname === "/")
+			myCats.classList.add("header-button_active")
+			allCats.classList.remove("header-button_active")
+		}
+		if(loaction.pathname === "/") {
 			window.scrollTo(0, props.catsScroll);
+			allCats.classList.add("header-button_active")
+			myCats.classList.remove("header-button_active")
+		}
 	}, [loaction.pathname, props])
 	return (
 		<header className='header'>
 			<div className="header-container">
-				<Link to="/" onClick={saveMyCatsScroll} className="header-button">Все Котики</Link>
-				<Link to="/my-cats" onClick={saveCatsScroll} className="header-button">Любимые Котики</Link>
+				<Link to="/" onClick={saveMyCatsScroll} className="header-button_cats">Все Котики</Link>
+				<Link to="/my-cats" onClick={saveCatsScroll} className="header-button_my-cats">Любимые Котики</Link>
 			</div>
 		</header>
 	);

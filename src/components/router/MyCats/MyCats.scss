@@ -1,5 +1,24 @@
 .my-cats{
-	height: 93vh;
+	padding: 10vh 0 0 0;
+
+	min-height: 90vh;
 	width: 100%;
-	background-color: darkgreen;
+	background-color: var(--color-2);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.my-cats__container{
+		width: 80%;
+		height: 100%;
+
+		padding: 20px 0;
+		overflow-y: scroll;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
 }

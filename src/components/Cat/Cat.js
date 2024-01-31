@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import "./Cat.scss"
 // [{
 // 	"id":"ebv",
@@ -25,19 +25,21 @@ import "./Cat.scss"
 import { addMyCatToTheStoreAction, deleteMyCatFromTheStoreAction } from '../../store';
 import { useDispatch, useSelector } from 'react-redux';
 const Cat = (props) => {
+
+	const catLike = useRef();
 	const dispatch = useDispatch();
 	const myCats = useSelector(state=>state.myCats)
 	const checkCat = myCats.find(cat=>{
 		return cat.id === props.cat.id
 	})
-	const handleToggle = () => {
+		const handleToggle = () => {
 		if (checkCat)
 			dispatch(deleteMyCatFromTheStoreAction(props.cat))
 		else
 			dispatch(addMyCatToTheStoreAction(props.cat))
 	}
 	return (
-		<div className='cat'>
+		<div ref={catLike} className='cat'>
 			<div className="cat-container">
 				<img src={props.cat.url} alt="" className="cat-img" />
 				<button onClick={handleToggle} className="add-to-my-cats">ADD</button>

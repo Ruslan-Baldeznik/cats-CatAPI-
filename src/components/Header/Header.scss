@@ -11,7 +11,7 @@ header.header{
     left: 0;
     z-index: 999;
 
-	background-color: darkcyan;
+	background-color: var(--color-1);
 	.header-container{
 		width: 80%;
 		height: 100%;
@@ -19,7 +19,21 @@ header.header{
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		.header-button{
+		.header-button_cats{
+			height: 40px;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0 20px;
+			margin: 0 20px;
+			border: 1px solid black;
+			box-shadow: 0 7px 0 ;
+			border-radius: 15px;
+
+			transition-duration: 0.4s;
+		}
+		.header-button_my-cats{
 			height: 40px;
 
 			display: flex;

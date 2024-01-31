@@ -7,6 +7,8 @@
 	justify-content: center;
 	margin: 5px;
 
+	box-sizing: border-box;
+
 	border-radius: 10px;
 	overflow: hidden;
 
@@ -27,4 +29,7 @@
 			position: absolute;
 		}
 	}
+}
+.liked {
+	border: 2px solid red;
 }
