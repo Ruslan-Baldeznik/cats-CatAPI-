@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import "./Cats.scss"
 import { useDispatch, useSelector } from 'react-redux';
-import Cat from '../../Cat/Cat';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { addCatsToTheStoreAction } from '../../../store';
+//import Cat from '../../Cat/Cat';
+const Cat = React.lazy(()=> import('../../Cat/Cat'))
 // [{
 // 	"id":"ebv",
 // 	"url":"https://cdn2.thecatapi.com/images/ebv.jpg",
@@ -62,7 +63,9 @@ const Cats = (props) => {
 				/>
 				{cats.map(cat=>{
 					return (
-						<Cat cat={cat} key={cat.id + Math.random()}/>
+						<Suspense fallback={<div>Loading...</div>}>
+							<Cat cat={cat} key={cat.id + Math.random()}/>
+						</Suspense>
 					)
 				})}
 			</div>
