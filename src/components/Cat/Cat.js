@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import "./Cat.scss"
 // [{
 // 	"id":"ebv",
@@ -32,17 +32,27 @@ const Cat = (props) => {
 	const checkCat = myCats.find(cat=>{
 		return cat.id === props.cat.id
 	})
-		const handleToggle = () => {
+	const buttonRef = useRef()
+	const handleToggle = () => {
 		if (checkCat)
 			dispatch(deleteMyCatFromTheStoreAction(props.cat))
 		else
 			dispatch(addMyCatToTheStoreAction(props.cat))
 	}
+	useEffect(()=>{
+		if (checkCat) {
+			buttonRef.current.classList.add("added-to-my-cats")
+			catLike.current.classList.add("liked")
+		} else {
+			buttonRef.current.classList.remove("added-to-my-cats")
+			catLike.current.classList.remove("liked")
+		}
+	})
 	return (
 		<div ref={catLike} className='cat'>
 			<div className="cat-container">
 				<img src={props.cat.url} alt="" className="cat-img" />
-				<button onClick={handleToggle} className="add-to-my-cats">ADD</button>
+				<button ref={buttonRef} onClick={handleToggle} className="add-to-my-cats"></button>
 			</div>
 		</div>
 	);
